@@ -1,69 +1,88 @@
-/* Responsive Styles */
+/* =============================================== */
+/* Responsive Styles for the New Creative Design   */
+/* =============================================== */
+
+/* For Tablets and Smaller Laptops */
 @media (max-width: 992px) {
-    .about-content {
+    .featured-content {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
-    
-    .about-image {
-        order: -1;
+    .featured-visual {
+        order: -1; /* Puts the image on top */
+        max-width: 500px;
+        margin: 0 auto;
     }
-    
-    .contact-container {
-        grid-template-columns: 1fr;
+    .section-title-left {
+        text-align: center;
+    }
+    .featured-text {
+        text-align: center;
     }
 }
 
+
+/* For Mobile Devices */
 @media (max-width: 768px) {
+    section {
+        padding: 80px 0;
+    }
+
+    /* --- Hamburger Menu Logic --- */
+    .hamburger {
+        display: flex; /* Show the hamburger icon */
+        z-index: 1001; /* Make sure it's above everything */
+    }
+
     .nav-links {
         position: fixed;
-        top: 80px;
-        left: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background: var(--primary);
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 70%;
+        height: 100vh;
+        background-color: #1a1a1a;
         flex-direction: column;
-        align-items: center;
         justify-content: center;
-        transition: all 0.5s ease;
+        align-items: center;
+        transition: right 0.5s ease-in-out;
+        gap: 40px;
     }
-    
-    .nav-links.active {
-        left: 0;
+
+    .nav-links.open {
+        right: 0; /* Slide in when open */
     }
-    
-    .nav-links li {
-        margin: 15px 0;
+
+    .nav-links a {
+        font-size: 1.2rem;
     }
-    
-    .hamburger {
-        display: block;
-        color: white;
-    }
-    
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero p {
+
+    .btn-youtube {
+        padding: 12px 25px;
         font-size: 1rem;
     }
-}
+    
+    /* --- Hero Section Adjustments --- */
+    .hero-title {
+       font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+    }
 
-@media (max-width: 576px) {
-    .section-title {
+    /* --- Universe Grid Adjustments --- */
+    .universe-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* --- Mission Section Adjustments --- */
+    .mission-content h2 {
         font-size: 1.8rem;
     }
     
-    .hero {
-        padding: 120px 0 80px;
-    }
-    
-    .hero h1 {
-        font-size: 2rem;
-    }
-    
-    .service-card, .portfolio-item {
-        max-width: 350px;
-        margin: 0 auto;
+    /* --- Footer Adjustments --- */
+    footer .container {
+        flex-direction: column;
+        gap: 20px;
     }
 }
